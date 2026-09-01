@@ -270,7 +270,12 @@ input {
   display: grid;
   gap: 8px;
   justify-items: center;
+  opacity: calc(0.06 + var(--sensor-strength) * 0.94);
   transform: translateX(12%);
+  filter: brightness(calc(0.65 + var(--sensor-strength) * 0.75));
+  transition:
+    opacity 0.08s linear,
+    filter 0.08s linear;
 }
 
 .sensor-copy small {
