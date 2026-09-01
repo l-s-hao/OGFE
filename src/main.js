@@ -90,7 +90,8 @@ const home = () => `
       </section>
     </div>
     <a class="sensor-entry" href="/scenes" data-link aria-label="进入机器人定制">
-      <small>READY?</small><b>进入定制</b><span>→</span>
+      <span class="sensor-scan" aria-hidden="true"></span>
+      <span class="sensor-copy"><small>READY?</small><b>进入定制</b><i>→</i></span>
     </a>
   </main>`;
 
@@ -256,12 +257,16 @@ function bindEvents() {
 
     const sensorEntry = document.querySelector('.sensor-entry');
     const updateSensor = (event) => {
-      const activationZone = Math.max(180, window.innerWidth * 0.18);
-      sensorEntry?.classList.toggle('sensed', event.clientX > window.innerWidth - activationZone);
+      const activationZone = window.innerWidth * 0.2;
+      const distanceFromRight = Math.max(0, window.innerWidth - event.clientX);
+      const strength = Math.max(0, Math.min(1, 1 - distanceFromRight / activationZone));
+      sensorEntry?.style.setProperty('--sensor-strength', strength.toFixed(3));
+      sensorEntry?.classList.toggle('sensed', strength > 0.08);
     };
     window.addEventListener('pointermove', updateSensor, { passive: true });
-    document.addEventListener('pointerleave', () => sensorEntry?.classList.remove('sensed'), {
-      once: true,
+    document.addEventListener('pointerleave', () => {
+      sensorEntry?.style.setProperty('--sensor-strength', '0');
+      sensorEntry?.classList.remove('sensed');
     });
   }
 }
