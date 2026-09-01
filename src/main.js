@@ -89,6 +89,9 @@ const home = () => `
         <footer><span>ONE—G / 2026</span><span>MODULAR · INTELLIGENT · YOURS</span></footer>
       </section>
     </div>
+    <a class="sensor-entry" href="/scenes" data-link aria-label="进入机器人定制">
+      <small>READY?</small><b>进入定制</b><span>→</span>
+    </a>
   </main>`;
 
 const scenePage = () => `${header('场景选择 / 01')}
@@ -97,6 +100,7 @@ const scenePage = () => `${header('场景选择 / 01')}
     <section class="scene-list">
       ${scenes.map(([name, text], i) => `<button class="scene ${state.scene === name ? 'selected' : ''}" data-scene="${name}"><small>0${i + 1}</small><div><h2>${name}</h2><p>${text}</p></div><span>选择</span></button>`).join('')}
     </section>
+    <a class="plan-special scene-plan-special" href="/plans" data-link><small>想快速开始？</small><b>查看推荐方案</b><span>↗</span></a>
     <div class="bottom-action"><a href="/" data-link>← 返回</a><button class="button primary" id="continueConfig">确认场景，继续 <span>→</span></button></div>
   </main>`;
 
@@ -109,7 +113,6 @@ const configurePage = () => `${header('机器人配置 / 02')}
     </aside>
     <section class="builder">
       <div class="builder-head"><div><p>STEP 02</p><h1>选择部件与功能</h1></div><span>已选择 <b id="partCount">${state.parts.size}</b> 项</span></div>
-      <a class="plan-special" href="/plans" data-link><small>不知道如何选择？</small><b>查看推荐方案</b><span>↗</span></a>
       <div class="parts">${parts.map(([name, desc, price]) => `<label class="part ${state.parts.has(name) ? 'checked' : ''}"><input type="checkbox" data-part="${name}" ${state.parts.has(name) ? 'checked' : ''}><span class="check">✓</span><div><h2>${name}</h2><p>${desc}</p></div><strong>+ ¥${price.toLocaleString()}</strong></label>`).join('')}</div>
       <button class="button primary finish" id="showQuote">生成完整配置和报价 <span>→</span></button>
     </section>
@@ -250,6 +253,16 @@ function bindEvents() {
     };
     window.addEventListener('scroll', updateHomeRail, { passive: true });
     updateHomeRail();
+
+    const sensorEntry = document.querySelector('.sensor-entry');
+    const updateSensor = (event) => {
+      const activationZone = Math.max(180, window.innerWidth * 0.18);
+      sensorEntry?.classList.toggle('sensed', event.clientX > window.innerWidth - activationZone);
+    };
+    window.addEventListener('pointermove', updateSensor, { passive: true });
+    document.addEventListener('pointerleave', () => sensorEntry?.classList.remove('sensed'), {
+      once: true,
+    });
   }
 }
 
