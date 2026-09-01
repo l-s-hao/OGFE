@@ -89,7 +89,7 @@ const home = () => `
         <footer><span>ONE—G / 2026</span><span>MODULAR · INTELLIGENT · YOURS</span></footer>
       </section>
     </div>
-    <a class="sensor-entry" href="/scenes" data-link aria-label="进入机器人定制">
+    <a class="floating-button" href="/scenes" data-link aria-label="进入机器人定制">
       <span class="sensor-scan" aria-hidden="true"></span>
       <span class="sensor-copy"><small>READY?</small><b>进入定制</b><i>→</i></span>
     </a>
@@ -255,7 +255,7 @@ function bindEvents() {
     window.addEventListener('scroll', updateHomeRail, { passive: true });
     updateHomeRail();
 
-    const sensorEntry = document.querySelector('.sensor-entry');
+    const sensorEntry = document.querySelector('.floating-button');
     const updateSensor = (event) => {
       const activationZone = window.innerWidth * 0.2;
       const distanceFromRight = Math.max(0, window.innerWidth - event.clientX);
