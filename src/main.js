@@ -35,16 +35,60 @@ const header = (step = '') => `
 
 const home = () => `
   <main class="home page-enter">
-    <div class="home-content">
-      <div class="signal">ONE - G</div>
-      <h1>定制属于你的<br /><em>---</em></h1>
-      <p>选择机器人平台、机械部件、感知设备和智能功能，<br />实时查看机器人能力、兼容性与价格。</p>
-      <div class="actions">
-        <a class="button primary" href="/scenes" data-link>开始定制 <span>→</span></a>
-        <a class="button secondary" href="/plans" data-link>查看推荐方案 <span>↗</span></a>
-      </div>
+    <aside class="home-rail" aria-label="首页章节导航">
+      <a class="rail-brand" href="#overview" data-scroll><b>1G</b><span>ONE—G</span></a>
+      <nav>
+        <a class="active" href="#overview" data-scroll><i>01</i><span>首页</span></a>
+        <a href="#capability" data-scroll><i>02</i><span>能力</span></a>
+        <a href="#process" data-scroll><i>03</i><span>流程</span></a>
+        <a href="#start" data-scroll><i>04</i><span>开始</span></a>
+      </nav>
+      <div class="rail-progress"><span id="railProgress"></span></div>
+      <small>SCROLL TO EXPLORE</small>
+    </aside>
+
+    <div class="home-scroll">
+      <section class="home-section hero-section" id="overview" data-home-section>
+        <div class="hero-grid"></div>
+        <div class="hero-copy">
+          <div class="signal"><i></i> ONE—G / ROBOT CONFIGURATOR</div>
+          <h1>定制属于你的<br /><em>机器人</em></h1>
+          <p>选择机器人平台、机械部件、感知设备和智能功能，<br />实时查看机器人能力、兼容性与价格。</p>
+          <a class="tech-link" href="#capability" data-scroll>向下探索 <span>↓</span></a>
+        </div>
+        <div class="data-orb" aria-hidden="true"><span>1G</span><i></i><b></b></div>
+        <div class="hero-meta"><span>SYS / ONLINE</span><span>LATENCY / 12MS</span><span>MODULES / 48+</span></div>
+      </section>
+
+      <section class="home-section capability-section" id="capability" data-home-section>
+        <div class="section-label"><span>02</span><p>MODULAR CAPABILITY</p></div>
+        <div class="section-intro"><h2>一个平台，组合无限能力</h2><p>从移动方式到感知系统，每个模块都经过兼容性验证，所选配置实时联动。</p></div>
+        <div class="capability-grid">
+          <article><small>PLATFORM</small><b>01</b><h3>机器人平台</h3><p>轮式、全地形与人形平台，匹配不同工作环境。</p></article>
+          <article><small>MECHANISM</small><b>02</b><h3>机械部件</h3><p>机械臂、夹爪与载物模块，按任务自由组合。</p></article>
+          <article><small>PERCEPTION</small><b>03</b><h3>感知设备</h3><p>视觉、雷达与声音传感器，让机器人理解环境。</p></article>
+          <article><small>INTELLIGENCE</small><b>04</b><h3>智能功能</h3><p>导航、对话、识别和学习能力，实时查看价格。</p></article>
+        </div>
+      </section>
+
+      <section class="home-section process-section" id="process" data-home-section>
+        <div class="section-label"><span>03</span><p>BUILD PROCESS</p></div>
+        <div class="process-title"><h2>三步完成机器人配置</h2><p>无需专业背景，系统会在每一步提供清晰提示。</p></div>
+        <ol class="home-steps">
+          <li><span>01</span><div><small>DEFINE</small><h3>选择用途</h3><p>确定机器人需要完成的核心任务与使用场景。</p></div></li>
+          <li><span>02</span><div><small>ASSEMBLE</small><h3>选择部件与功能</h3><p>搭配硬件与智能模块，实时检查兼容性。</p></div></li>
+          <li><span>03</span><div><small>DELIVER</small><h3>获取配置和报价</h3><p>生成完整清单、能力说明与透明参考价格。</p></div></li>
+        </ol>
+      </section>
+
+      <section class="home-section start-section" id="start" data-home-section>
+        <div class="start-code">04 / READY</div>
+        <h2>下一台机器人<br />由你定义</h2>
+        <p>从使用场景出发，开始构建你的 ONE—G 机器人。</p>
+        <a class="button primary start-button" href="/scenes" data-link>开始定制 <span>→</span></a>
+        <footer><span>ONE—G / 2026</span><span>MODULAR · INTELLIGENT · YOURS</span></footer>
+      </section>
     </div>
-    <footer><span>OG—RBT / 2026</span><span>MODULAR · INTELLIGENT · YOURS</span></footer>
   </main>`;
 
 const scenePage = () => `${header('场景选择 / 01')}
@@ -65,6 +109,7 @@ const configurePage = () => `${header('机器人配置 / 02')}
     </aside>
     <section class="builder">
       <div class="builder-head"><div><p>STEP 02</p><h1>选择部件与功能</h1></div><span>已选择 <b id="partCount">${state.parts.size}</b> 项</span></div>
+      <a class="plan-special" href="/plans" data-link><small>不知道如何选择？</small><b>查看推荐方案</b><span>↗</span></a>
       <div class="parts">${parts.map(([name, desc, price]) => `<label class="part ${state.parts.has(name) ? 'checked' : ''}"><input type="checkbox" data-part="${name}" ${state.parts.has(name) ? 'checked' : ''}><span class="check">✓</span><div><h2>${name}</h2><p>${desc}</p></div><strong>+ ¥${price.toLocaleString()}</strong></label>`).join('')}</div>
       <button class="button primary finish" id="showQuote">生成完整配置和报价 <span>→</span></button>
     </section>
@@ -180,6 +225,32 @@ function bindEvents() {
       navigate('/configure');
     }),
   );
+
+  const homeScroller = document.querySelector('.home-scroll');
+  const homeSections = [...document.querySelectorAll('[data-home-section]')];
+  document.querySelectorAll('[data-scroll]').forEach((link) =>
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      document.querySelector(link.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    }),
+  );
+  if (homeScroller && homeSections.length) {
+    const updateHomeRail = () => {
+      const current = homeSections.reduce((active, section) =>
+        section.getBoundingClientRect().top < window.innerHeight * 0.52 ? section : active,
+      );
+      document
+        .querySelectorAll('.home-rail nav a')
+        .forEach((link) =>
+          link.classList.toggle('active', link.getAttribute('href') === `#${current.id}`),
+        );
+      const max = homeScroller.scrollHeight - window.innerHeight;
+      const progress = max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0;
+      document.querySelector('#railProgress').style.height = `${progress}%`;
+    };
+    window.addEventListener('scroll', updateHomeRail, { passive: true });
+    updateHomeRail();
+  }
 }
 
 window.addEventListener('hashchange', render);
