@@ -1,0 +1,422 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  font-family: Arial, 'Microsoft YaHei', sans-serif;
+}
+body {
+  margin: 0;
+  background: white;
+  color: black;
+}
+a {
+  color: black;
+}
+button,
+input {
+  font: inherit;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 5%;
+  border-bottom: 1px solid black;
+}
+.logo,
+.home-link {
+  font-weight: bold;
+  text-decoration: none;
+}
+.logo span {
+  margin-right: 8px;
+}
+.header-step {
+  font-size: 14px;
+}
+
+.home {
+  min-height: 100vh;
+  padding: 80px 5% 30px;
+  text-align: center;
+}
+.home-content {
+  max-width: 900px;
+  margin: 10vh auto 0;
+}
+.signal,
+.page-title > p,
+.builder-head p,
+.step-nav > p,
+.live-summary > p,
+.quote-intro > p {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.home h1 {
+  margin: 25px 0;
+  font-size: clamp(44px, 7vw, 90px);
+  line-height: 1.1;
+}
+.home h1 em {
+  font-style: normal;
+}
+.home-content > p {
+  margin: 25px 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+.actions,
+.quote-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.button {
+  display: inline-block;
+  min-width: 170px;
+  padding: 14px 20px;
+  border: 1px solid black;
+  background: white;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button:hover,
+.button:focus,
+.scene:hover,
+.scene:focus,
+.part:hover,
+.part:focus-within,
+.plan-price button:hover {
+  text-decoration: underline;
+}
+.home footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 140px;
+  padding-top: 20px;
+  border-top: 1px solid black;
+  font-size: 12px;
+}
+
+.content-page,
+.plans-page {
+  max-width: 1300px;
+  margin: auto;
+  padding: 60px 5%;
+}
+.page-title {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: end;
+  gap: 30px;
+  padding-bottom: 35px;
+  border-bottom: 1px solid black;
+}
+.page-title h1,
+.builder-head h1,
+.quote-intro h1 {
+  margin: 0;
+  font-size: clamp(32px, 4vw, 58px);
+}
+.page-title > span {
+  line-height: 1.6;
+}
+.scene-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.scene {
+  min-height: 150px;
+  padding: 25px;
+  border: 0;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  background: white;
+  color: black;
+  text-align: left;
+  cursor: pointer;
+}
+.scene:nth-child(3n + 1) {
+  border-left: 1px solid black;
+}
+.scene.selected {
+  border: 3px solid black;
+}
+.scene small,
+.scene > span {
+  display: block;
+  font-size: 12px;
+}
+.scene h2 {
+  margin: 20px 0 8px;
+}
+.scene p {
+  margin: 0 0 20px;
+}
+.bottom-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+
+.config-page {
+  display: grid;
+  grid-template-columns: 230px 1fr 280px;
+  min-height: calc(100vh - 67px);
+}
+.step-nav,
+.builder,
+.live-summary {
+  padding: 45px 30px;
+}
+.step-nav {
+  border-right: 1px solid black;
+}
+.step-nav ol {
+  margin: 35px 0;
+  padding: 0;
+  list-style: none;
+}
+.step-nav li {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+.step-nav li b {
+  flex: none;
+}
+.step-nav li span,
+.step-nav li small {
+  display: block;
+}
+.step-nav li small {
+  margin-top: 5px;
+  font-weight: normal;
+}
+.builder-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+.parts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.part {
+  position: relative;
+  display: grid;
+  grid-template-columns: 25px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  min-height: 110px;
+  padding: 20px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+.part:nth-child(odd) {
+  border-left: 1px solid black;
+}
+.part:nth-child(-n + 2) {
+  border-top: 1px solid black;
+}
+.part input {
+  position: absolute;
+  opacity: 0;
+}
+.check {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  color: transparent;
+  text-align: center;
+}
+.part.checked .check {
+  color: black;
+}
+.part h2 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+.part p,
+.part strong {
+  font-size: 13px;
+}
+.finish {
+  display: block;
+  margin: 30px 0 0 auto;
+}
+.live-summary {
+  border-left: 1px solid black;
+}
+.live-summary h2 {
+  margin-top: 35px;
+}
+.live-summary ul {
+  padding-left: 20px;
+  line-height: 2;
+}
+
+.quote-page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8%;
+  align-items: center;
+  max-width: 1200px;
+  min-height: calc(100vh - 67px);
+  margin: auto;
+  padding: 60px 5%;
+}
+.done {
+  display: block;
+  margin-bottom: 25px;
+  font-size: 30px;
+}
+.quote-intro h1 {
+  margin: 20px 0;
+}
+.quote-sheet {
+  padding: 30px;
+  border: 1px solid black;
+}
+.quote-top,
+.quote-items > div,
+.total,
+.compat {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid black;
+}
+.quote-top h2 {
+  margin: 8px 0 0;
+}
+.quote-top > span {
+  text-align: right;
+}
+.quote-items small,
+.total small,
+.compat small {
+  display: block;
+  margin-top: 5px;
+}
+.total strong {
+  font-size: 26px;
+}
+.compat {
+  justify-content: flex-start;
+  gap: 12px;
+  border-bottom: 0;
+}
+.quote-actions .button {
+  min-width: 0;
+  width: 50%;
+}
+
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+.plan {
+  padding: 25px;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+}
+.plan-no b {
+  float: right;
+}
+.plan h2 {
+  margin: 10px 0 25px;
+}
+.plan ul {
+  min-height: 130px;
+  padding-left: 20px;
+  line-height: 2;
+}
+.plan-price {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid black;
+}
+.plan-price > span {
+  font-size: 20px;
+  font-weight: bold;
+}
+.plan-price button {
+  border: 0;
+  background: white;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .page-title,
+  .quote-page {
+    grid-template-columns: 1fr;
+  }
+  .scene-list,
+  .plans {
+    grid-template-columns: 1fr 1fr;
+  }
+  .config-page {
+    grid-template-columns: 180px 1fr;
+  }
+  .live-summary {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-step {
+    display: none;
+  }
+  .home-content > p br {
+    display: none;
+  }
+  .actions,
+  .quote-actions {
+    flex-direction: column;
+  }
+  .button,
+  .quote-actions .button {
+    width: 100%;
+  }
+  .scene-list,
+  .plans,
+  .parts {
+    grid-template-columns: 1fr;
+  }
+  .scene:nth-child(n),
+  .part:nth-child(n) {
+    border-left: 1px solid black;
+    border-top: 0;
+  }
+  .config-page {
+    display: block;
+  }
+  .step-nav {
+    border-right: 0;
+    border-bottom: 1px solid black;
+  }
+  .step-nav > p,
+  .step-nav ol,
+  .step-nav > a {
+    display: none;
+  }
+  .builder-head {
+    display: block;
+  }
+  .builder-head > span {
+    display: block;
+    margin-top: 15px;
+  }
+}
