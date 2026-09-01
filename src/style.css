@@ -141,7 +141,7 @@ input {
   transition: 0.3s;
 }
 .home-rail nav a::before {
-  position: absolute;
+  position: fixed;
   inset: 18px auto 18px 0;
   width: 2px;
   background: var(--cyan);
@@ -194,7 +194,7 @@ input {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  padding: 9vh 23vw 9vh 7vw;
+  padding: 9vh 7vw;
   border-bottom: 1px solid var(--line);
 }
 
@@ -1104,7 +1104,7 @@ input {
   }
   .home-section {
     min-height: calc(100vh - 66px);
-    padding: 70px 30vw 70px 7vw;
+    padding: 70px 7vw;
   }
   .hero-copy h1 {
     font-size: 54px;
