@@ -156,14 +156,24 @@ button {
   clip-path: inset(0 0 100%);
   transition: clip-path 0.55s cubic-bezier(0.7, 0, 0.2, 1);
 }
-.drawer.open {
+.drawer[data-state='open'] {
   clip-path: inset(0);
 }
-.drawer > button {
-  align-self: flex-end;
+.drawer[data-state='closed'] {
+  clip-path: inset(0 0 100%);
+}
+.sheet-close {
+  position: absolute;
+  top: 25px;
+  right: 20px;
   border: 0;
   color: #fff;
   background: none;
+  cursor: pointer;
+}
+.sheet-close svg {
+  width: 28px;
+  height: 28px;
 }
 .drawer nav {
   display: flex;
@@ -211,6 +221,7 @@ button {
   margin: 0;
 }
 .hero-foot a {
+  height: auto;
   padding: 9px 14px;
   border-radius: 999px;
   transition:
@@ -258,9 +269,15 @@ button {
   line-height: 1.65;
 }
 .category-tabs {
-  display: flex;
-  gap: 10px;
   margin: 75px 0 30px;
+}
+.category-tabs [role='tablist'] {
+  display: flex;
+  width: fit-content;
+  height: auto;
+  gap: 10px;
+  padding: 0;
+  background: transparent;
 }
 .category-tabs button {
   padding: 11px 18px;
@@ -269,7 +286,7 @@ button {
   background: #fff;
   font-size: 11px;
 }
-.category-tabs button.active {
+.category-tabs button[data-state='active'] {
   color: #fff;
   border-color: var(--ink);
   background: var(--ink);
@@ -278,6 +295,12 @@ button {
   display: grid;
   grid-template-columns: 1.25fr 0.75fr;
   gap: 18px;
+}
+.product-grid.filtered {
+  grid-template-columns: 1fr;
+}
+.product-grid.filtered .product-card {
+  min-height: min(850px, 78vw);
 }
 .product-card {
   position: relative;
@@ -615,6 +638,9 @@ body > footer {
   .category-tabs {
     margin-top: 50px;
     overflow: auto;
+  }
+  .category-tabs [role='tablist'] {
+    width: max-content;
   }
   .category-tabs button {
     white-space: nowrap;
