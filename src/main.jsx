@@ -135,7 +135,7 @@ function App() {
       <main id="top">
         <section className="brand-hero">
           <div className="hero-meta">
-            <span>机器人 / 上海</span>
+            <span>机器人 / 浙江</span>
             <span>运动中的智能</span>
           </div>
           <StrokeText
