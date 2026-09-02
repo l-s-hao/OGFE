@@ -1,20 +1,20 @@
 export const homepageMarkup = `
   <div class="site-shell">
-    <header class="topbar">
+    <header class="product-nav" aria-label="主导航">
       <a class="brand" href="#top" aria-label="ONE G 首页">ONE—G<sup>®</sup></a>
-      <nav class="desktop-nav" aria-label="主导航">
-        <a href="#work">产品能力</a><a href="#stories">研发现场</a><a href="#about">关于我们</a>
-      </nav>
-      <div class="top-actions"><span class="status"><i></i> SYSTEM ONLINE</span><button class="menu-button" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button></div>
+      <nav><a href="#products">产品</a><a href="#collaboration">能力</a><a href="#platform">开发平台</a><a href="#stories">研发</a></nav>
+      <div class="nav-actions"><button class="login-button" type="button">用户登录</button><button class="menu-button" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button></div>
+      <div class="mega-menu">
+        <div class="mega-lead"><small>EXPLORE ONE—G</small><h2>让智能进入<br>现实世界。</h2><span>PRODUCTS / 2026</span></div>
+        <div class="mega-column"><small>产品系列</small><a href="#products"><b>OG Body</b><span>通用机器人本体</span></a><a href="#collaboration"><b>OG Vision</b><span>空间感知系统</span></a><a href="#platform"><b>OG Studio</b><span>开放开发平台</span></a></div>
+        <div class="mega-column"><small>探索更多</small><a href="#about"><b>技术理念</b><span>我们的研发方向</span></a><a href="#stories"><b>研发现场</b><span>实验与最新进展</span></a><a href="#contact"><b>联系我们</b><span>合作与产品咨询</span></a></div>
+      </div>
     </header>
-    <div class="product-nav" aria-label="产品系列导航">
-      <span>探索 ONE—G</span><nav><a href="#products">OG Body</a><a href="#collaboration">OG Vision</a><a href="#platform">开发平台</a></nav><a class="nav-cta" href="#contact">联系我们 ↗</a>
-    </div>
     <main id="top">
       <section class="hero section-pad">
-        <div class="hero-kicker reveal"><span>01</span><span>Robotics / Shanghai</span></div>
-        <h1 class="reveal" id="heroTitle" aria-label="让机器理解世界。"></h1>
-        <div class="hero-bottom reveal"><p>我们打造能感知、思考与行动的通用机器人，<br>让智能真正进入现实世界。</p><a class="circle-link" href="#work" aria-label="查看产品能力">↘</a></div>
+        <div class="hero-kicker reveal"><span>ROBOTICS / SHANGHAI</span><span>INTELLIGENCE IN MOTION</span></div>
+        <h1 class="reveal logo-display" id="heroTitle" aria-label="ONE G"></h1>
+        <div class="hero-bottom reveal"><p><b>让机器理解世界。</b><br>我们打造能感知、思考与行动的通用机器人。</p><a class="circle-link" href="#discover" aria-label="查看产品系列">↘</a></div>
       </section>
       <section class="discover section-pad" id="discover">
         <div class="discover-heading reveal"><small>DISCOVER ONE—G</small><h2>为现实世界打造的<br>机器人产品家族</h2><p>从通用本体到智能系统，每一项能力都可以独立工作，也可以无缝组合。</p></div>
@@ -75,6 +75,7 @@ export const homepageMarkup = `
     </main>
     <footer class="footer section-pad"><span>© 2026 ONE—G</span><span>SHANGHAI, CN · 14:32</span><a href="#top">BACK TO TOP ↑</a></footer>
     <a class="back-to-top" href="#top" aria-label="返回顶部"><span>↑</span><small>TOP</small></a>
+    <dialog class="login-dialog"><button class="dialog-close" type="button" aria-label="关闭">×</button><small>ONE—G ACCOUNT</small><h2>欢迎回来</h2><form method="dialog"><label>邮箱<input type="email" placeholder="name@example.com" required /></label><label>密码<input type="password" placeholder="••••••••" required /></label><button class="dialog-submit" type="submit">登录 <span>→</span></button></form><p>演示界面，暂未连接用户系统。</p></dialog>
     <div class="menu-panel" aria-hidden="true"><nav><a href="#work">产品能力</a><a href="#stories">研发现场</a><a href="#about">关于我们</a></nav><small>ONE—G / MENU</small></div>
   </div>`;
 
@@ -106,13 +107,13 @@ export function setupHomepageInteractions() {
     { threshold: 0.14 },
   );
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-  const primaryNav = document.querySelector('.topbar');
   const backToTop = document.querySelector('.back-to-top');
-  const navigationObserver = new IntersectionObserver(
-    ([entry]) => document.body.classList.toggle('subnav-visible', !entry.isIntersecting),
-    { threshold: 0 },
-  );
-  navigationObserver.observe(primaryNav);
+  const loginDialog = document.querySelector('.login-dialog');
+  document.querySelector('.login-button').addEventListener('click', () => loginDialog.showModal());
+  document.querySelector('.dialog-close').addEventListener('click', () => loginDialog.close());
+  loginDialog.addEventListener('click', (event) => {
+    if (event.target === loginDialog) loginDialog.close();
+  });
   const updateBackToTop = () =>
     backToTop.classList.toggle('visible', window.scrollY > window.innerHeight * 0.7);
   window.addEventListener('scroll', updateBackToTop, { passive: true });
@@ -155,7 +156,6 @@ export function setupHomepageInteractions() {
   );
   return () => {
     observer.disconnect();
-    navigationObserver.disconnect();
     window.removeEventListener('scroll', updateBackToTop);
   };
 }

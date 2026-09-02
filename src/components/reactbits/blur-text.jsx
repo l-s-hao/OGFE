@@ -1,10 +1,7 @@
 import { motion } from 'motion/react';
 
 export function BlurText() {
-  const lines = [
-    ['让', '机', '器'],
-    ['理', '解', '世', '界', '。'],
-  ];
+  const lines = [['O', 'N', 'E', '—', 'G']];
   let index = 0;
   return lines.map((line, lineIndex) => (
     <span className={lineIndex ? 'blur-line italic-line' : 'blur-line'} key={lineIndex}>
