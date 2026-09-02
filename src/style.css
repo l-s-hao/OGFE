@@ -142,6 +142,18 @@ button {
   font-family: Georgia, serif;
   font-weight: 400;
 }
+.blur-line {
+  display: flex;
+}
+.blur-line span {
+  display: inline-block;
+}
+.blur-line.italic-line {
+  padding-left: 10vw;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
 .hero h1 em {
   display: block;
   padding-left: 10vw;
@@ -734,10 +746,12 @@ button {
   line-height: 1.7;
 }
 .platform-cards {
+  margin-top: 8vw;
+}
+.magic-bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.2vw;
-  margin-top: 8vw;
 }
 .platform-card {
   display: flex;
@@ -847,6 +861,9 @@ button {
     font-size: 20vw;
   }
   .hero h1 em {
+    padding-left: 0;
+  }
+  .blur-line.italic-line {
     padding-left: 0;
   }
   .hero-bottom {
@@ -1001,9 +1018,11 @@ button {
     margin-top: 30px;
   }
   .platform-cards {
+    margin-top: 65px;
+  }
+  .magic-bento-grid {
     grid-template-columns: 1fr;
     gap: 15px;
-    margin-top: 65px;
   }
   .platform-card {
     min-height: 125vw;

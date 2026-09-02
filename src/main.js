@@ -10,7 +10,7 @@ export const homepageMarkup = `
     <main id="top">
       <section class="hero section-pad">
         <div class="hero-kicker reveal"><span>01</span><span>Robotics / Shanghai</span></div>
-        <h1 class="reveal">让机器<br><em>理解世界。</em></h1>
+        <h1 class="reveal" id="heroTitle" aria-label="让机器理解世界。"></h1>
         <div class="hero-bottom reveal"><p>我们打造能感知、思考与行动的通用机器人，<br>让智能真正进入现实世界。</p><a class="circle-link" href="#work" aria-label="查看产品能力">↘</a></div>
       </section>
       <section class="feature-wrap section-pad reveal" id="work">
@@ -38,18 +38,14 @@ export const homepageMarkup = `
         <div class="human-copy"><small>03 / HUMAN + MACHINE</small><h2>不是替代人，<br>而是拓展人的能力。</h2><p>自然语言协作、意图理解和安全响应，让机器人进入真实工作流。</p><a href="#platform">了解协作系统 <span>↗</span></a></div>
       </section>
       <section class="capability-strip">
-        <article><small>感知范围</small><strong>360°</strong><p>多传感器环境融合</p></article>
-        <article><small>响应延迟</small><strong>&lt; 18<em>ms</em></strong><p>实时运动控制链路</p></article>
-        <article><small>开放接口</small><strong>48+</strong><p>硬件与软件模块</p></article>
-        <article><small>持续运行</small><strong>12<em>h</em></strong><p>智能电源管理</p></article>
+        <article><small>感知范围</small><strong id="tickerVision"></strong><p>多传感器环境融合</p></article>
+        <article><small>响应延迟</small><strong id="tickerLatency"></strong><p>实时运动控制链路</p></article>
+        <article><small>开放接口</small><strong id="tickerModules"></strong><p>硬件与软件模块</p></article>
+        <article><small>持续运行</small><strong id="tickerRuntime"></strong><p>智能电源管理</p></article>
       </section>
       <section class="platform section-pad" id="platform">
         <div class="platform-intro reveal"><small>04 / OPEN PLATFORM</small><h2>一个平台，<br>连接所有能力。</h2><p>像组合产品生态一样构建机器人能力。硬件、模型和开发工具使用同一套标准接口。</p></div>
-        <div class="platform-cards">
-          <article class="platform-card code-card reveal"><span>SDK</span><div><small>FOR DEVELOPERS</small><h3>开放开发工具</h3><p>从仿真到真机部署，保持一套工作流。</p></div></article>
-          <article class="platform-card model-card reveal"><div class="model-orbit"><i></i><b>AI</b></div><div><small>FOUNDATION MODEL</small><h3>具身基础模型</h3><p>看懂指令、规划步骤并适应新任务。</p></div></article>
-          <article class="platform-card cloud-card reveal"><div class="cloud-grid"></div><div><small>FLEET SYSTEM</small><h3>机器人集群</h3><p>跨设备更新、监控与持续学习。</p></div></article>
-        </div>
+        <div class="platform-cards" id="platformCards"></div>
       </section>
       <section class="manifesto section-pad" id="about">
         <div class="section-head reveal"><span>05 / OUR APPROACH</span><span>INTELLIGENCE IN MOTION</span></div>
