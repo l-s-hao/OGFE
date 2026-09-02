@@ -74,6 +74,7 @@ export const homepageMarkup = `
       <section class="closing section-pad reveal" id="contact"><p>ONE—G / ROBOTICS</p><h2>智能，应当<br><em>走出屏幕。</em></h2><a href="mailto:hello@one-g.ai">开始对话 <span>↗</span></a></section>
     </main>
     <footer class="footer section-pad"><span>© 2026 ONE—G</span><span>SHANGHAI, CN · 14:32</span><a href="#top">BACK TO TOP ↑</a></footer>
+    <a class="back-to-top" href="#top" aria-label="返回顶部"><span>↑</span><small>TOP</small></a>
     <div class="menu-panel" aria-hidden="true"><nav><a href="#work">产品能力</a><a href="#stories">研发现场</a><a href="#about">关于我们</a></nav><small>ONE—G / MENU</small></div>
   </div>`;
 
@@ -106,11 +107,16 @@ export function setupHomepageInteractions() {
   );
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
   const primaryNav = document.querySelector('.topbar');
+  const backToTop = document.querySelector('.back-to-top');
   const navigationObserver = new IntersectionObserver(
     ([entry]) => document.body.classList.toggle('subnav-visible', !entry.isIntersecting),
     { threshold: 0 },
   );
   navigationObserver.observe(primaryNav);
+  const updateBackToTop = () =>
+    backToTop.classList.toggle('visible', window.scrollY > window.innerHeight * 0.7);
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  updateBackToTop();
   const art = document.querySelector('.feature-art');
   art.addEventListener('pointermove', (event) => {
     const rect = art.getBoundingClientRect();
@@ -150,5 +156,6 @@ export function setupHomepageInteractions() {
   return () => {
     observer.disconnect();
     navigationObserver.disconnect();
+    window.removeEventListener('scroll', updateBackToTop);
   };
 }

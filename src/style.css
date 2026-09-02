@@ -5,6 +5,7 @@
   --ink: #11110f;
   --acid: #dfff00;
   --line: rgba(17, 17, 15, 0.22);
+  --deep-beige: #b8aa91;
 }
 * {
   box-sizing: border-box;
@@ -40,6 +41,7 @@ button {
   height: 76px;
   padding: 0 3vw;
   border-bottom: 1px solid var(--line);
+  background: var(--deep-beige);
 }
 .product-nav {
   position: fixed;
@@ -745,6 +747,52 @@ button {
   font-size: 9px;
   letter-spacing: 0.1em;
 }
+.back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 13;
+  display: grid;
+  width: 58px;
+  height: 58px;
+  place-items: center;
+  border: 1px solid rgba(241, 240, 235, 0.35);
+  border-radius: 50%;
+  color: var(--paper);
+  background: rgba(17, 17, 15, 0.9);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.16);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px) scale(0.9);
+  transition:
+    opacity 0.3s,
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.25s;
+  backdrop-filter: blur(12px);
+}
+.back-to-top span {
+  font-size: 17px;
+  line-height: 1;
+  transform: translateY(5px);
+}
+.back-to-top small {
+  font-size: 7px;
+  letter-spacing: 0.14em;
+  transform: translateY(-6px);
+}
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+.back-to-top:hover {
+  color: var(--ink);
+  background: var(--acid);
+}
+.menu-open .back-to-top {
+  opacity: 0;
+  pointer-events: none;
+}
 .menu-panel {
   display: none;
 }
@@ -1236,6 +1284,12 @@ button {
   }
   .footer span:nth-child(2) {
     display: none;
+  }
+  .back-to-top {
+    right: 16px;
+    bottom: 16px;
+    width: 50px;
+    height: 50px;
   }
   .product-family {
     padding-top: 90px;
