@@ -195,60 +195,12 @@ button {
   font-size: 9px;
   letter-spacing: 0.1em;
 }
-.brand-hero h1 {
+.hero-stroke {
   margin: auto 0;
-  font-size: clamp(82px, 17.3vw, 270px);
-  font-weight: 500;
-  line-height: 0.78;
-  letter-spacing: -0.085em;
-  white-space: nowrap;
+  --stroke-text-height: 330px !important;
 }
-.stroke-text {
-  --stroke-x: 50%;
-  --stroke-y: 50%;
-  position: relative;
-  width: 100%;
-  height: 0.82em;
-  text-align: center;
-  cursor: crosshair;
-}
-.stroke-text span {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.stroke-outline {
-  color: transparent;
-  -webkit-text-stroke: 2px var(--ink);
-  text-stroke: 2px var(--ink);
-}
-.stroke-fill {
-  color: var(--ink);
-  -webkit-mask-image: radial-gradient(
-    circle 170px at var(--stroke-x) var(--stroke-y),
-    #000 0 55%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    circle 170px at var(--stroke-x) var(--stroke-y),
-    #000 0 55%,
-    transparent 100%
-  );
-  transition:
-    -webkit-mask-image 0.15s,
-    mask-image 0.15s;
-}
-.stroke-text:after {
-  position: absolute;
-  bottom: -35px;
-  left: 50%;
-  font-size: 8px;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  content: 'MOVE TO REVEAL';
-  transform: translateX(-50%);
+.hero-stroke .stroke-text__svg {
+  overflow: visible;
 }
 .hero-foot {
   align-items: flex-end;
@@ -620,19 +572,8 @@ body > footer {
   .brand-hero {
     padding: 75px 18px 22px;
   }
-  .brand-hero h1 {
-    font-size: 17vw;
-  }
-  .stroke-outline {
-    -webkit-text-stroke: 1px var(--ink);
-  }
-  .stroke-fill {
-    -webkit-mask-image: radial-gradient(circle 95px at 50% 50%, #000, transparent);
-    mask-image: radial-gradient(circle 95px at 50% 50%, #000, transparent);
-  }
-  .stroke-text:after {
-    bottom: -25px;
-    font-size: 6px;
+  .hero-stroke {
+    --stroke-text-height: 150px !important;
   }
   .hero-meta {
     font-size: 7px;

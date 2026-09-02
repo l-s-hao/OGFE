@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { StrokeText } from '@/components/reactbits/stroke-text';
+import StrokeText from '@/components/reactbits/stroke-text';
 import './style.css';
 
 const products = [
@@ -138,7 +138,20 @@ function App() {
             <span>ROBOTICS / SHANGHAI</span>
             <span>INTELLIGENCE IN MOTION</span>
           </div>
-          <StrokeText text="ONE - G" />
+          <StrokeText
+            text="ONE - G"
+            className="hero-stroke"
+            strokeColor="#171715"
+            fillColor="#171715"
+            strokeWidth={1.8}
+            drawDuration={1.35}
+            fillDelay={0.12}
+            stagger={0.07}
+            fillMode="wipe"
+            fontSize={240}
+            fontWeight={600}
+            letterSpacing={-17}
+          />
           <div className="hero-foot">
             <p>
               Building intelligent machines
