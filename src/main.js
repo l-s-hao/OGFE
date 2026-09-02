@@ -23,13 +23,45 @@ app.innerHTML = `
           <div class="feature-info"><div><small>FEATURED SYSTEM</small><h2>OG-01<br>通用智能体</h2></div><p>视觉、语言与运动控制在同一系统中协同，<br>从指令理解到精准执行，一步完成。</p><span class="card-index">01 / 03</span></div>
         </article>
       </section>
+      <section class="product-family section-pad" id="products">
+        <div class="section-head reveal"><span>02 / PRODUCT FAMILY</span><span>CHOOSE A CAPABILITY</span></div>
+        <div class="family-layout reveal">
+          <div class="family-tabs" role="tablist" aria-label="产品能力">
+            <button class="family-tab active" data-family="body" role="tab"><small>01</small><span>通用本体</span><i>自主移动与全身控制</i></button>
+            <button class="family-tab" data-family="vision" role="tab"><small>02</small><span>空间感知</span><i>理解人物、物体与环境</i></button>
+            <button class="family-tab" data-family="hand" role="tab"><small>03</small><span>灵巧操作</span><i>完成精细的现实任务</i></button>
+          </div>
+          <div class="family-stage" data-active="body">
+            <div class="family-shape"><span>OG</span><i></i><b></b></div>
+            <div class="family-copy"><small id="familyEyebrow">OG BODY / 01</small><h2 id="familyTitle">稳定移动，<br>自然行动。</h2><p id="familyText">从室内导航到复杂地形，统一控制系统让机器人的每一次移动都安全、流畅。</p></div>
+          </div>
+        </div>
+      </section>
+      <section class="human-section reveal" id="collaboration">
+        <img src="./images/robot-collaboration.png" alt="机器人与设计师在明亮工作室中协作" />
+        <div class="human-copy"><small>03 / HUMAN + MACHINE</small><h2>不是替代人，<br>而是拓展人的能力。</h2><p>自然语言协作、意图理解和安全响应，让机器人进入真实工作流。</p><a href="#platform">了解协作系统 <span>↗</span></a></div>
+      </section>
+      <section class="capability-strip">
+        <article><small>感知范围</small><strong>360°</strong><p>多传感器环境融合</p></article>
+        <article><small>响应延迟</small><strong>&lt; 18<em>ms</em></strong><p>实时运动控制链路</p></article>
+        <article><small>开放接口</small><strong>48+</strong><p>硬件与软件模块</p></article>
+        <article><small>持续运行</small><strong>12<em>h</em></strong><p>智能电源管理</p></article>
+      </section>
+      <section class="platform section-pad" id="platform">
+        <div class="platform-intro reveal"><small>04 / OPEN PLATFORM</small><h2>一个平台，<br>连接所有能力。</h2><p>像组合产品生态一样构建机器人能力。硬件、模型和开发工具使用同一套标准接口。</p></div>
+        <div class="platform-cards">
+          <article class="platform-card code-card reveal"><span>SDK</span><div><small>FOR DEVELOPERS</small><h3>开放开发工具</h3><p>从仿真到真机部署，保持一套工作流。</p></div></article>
+          <article class="platform-card model-card reveal"><div class="model-orbit"><i></i><b>AI</b></div><div><small>FOUNDATION MODEL</small><h3>具身基础模型</h3><p>看懂指令、规划步骤并适应新任务。</p></div></article>
+          <article class="platform-card cloud-card reveal"><div class="cloud-grid"></div><div><small>FLEET SYSTEM</small><h3>机器人集群</h3><p>跨设备更新、监控与持续学习。</p></div></article>
+        </div>
+      </section>
       <section class="manifesto section-pad" id="about">
-        <div class="section-head reveal"><span>02 / OUR APPROACH</span><span>INTELLIGENCE IN MOTION</span></div>
+        <div class="section-head reveal"><span>05 / OUR APPROACH</span><span>INTELLIGENCE IN MOTION</span></div>
         <p class="manifesto-copy reveal">不是让机器人看起来更像未来，<br>而是让未来<span>真正可用。</span></p>
         <div class="manifesto-foot reveal"><p>ONE—G 将前沿具身智能研究转化为稳定、开放、可扩展的机器人系统。</p><a href="#stories">探索研发现场 <span>↗</span></a></div>
       </section>
       <section class="projects section-pad" id="stories">
-        <div class="section-head reveal"><span>03 / FIELD NOTES</span><span>SELECTED EXPERIMENTS</span></div>
+        <div class="section-head reveal"><span>06 / FIELD NOTES</span><span>SELECTED EXPERIMENTS</span></div>
         <div class="project-grid">
           <article class="project reveal"><div class="project-visual visual-a"><span class="cross">+</span><b>SEE</b></div><div class="project-meta"><h3>空间感知</h3><p>动态环境理解 / 2026</p><span>↗</span></div></article>
           <article class="project reveal"><div class="project-visual visual-b"><div class="joint"><i></i><i></i><i></i></div><b>MOVE</b></div><div class="project-meta"><h3>全身控制</h3><p>实时运动规划 / 2026</p><span>↗</span></div></article>
@@ -75,3 +107,33 @@ art.addEventListener('pointermove', (event) => {
   art.style.setProperty('--mx', `${((event.clientX - rect.left) / rect.width - 0.5) * 18}px`);
   art.style.setProperty('--my', `${((event.clientY - rect.top) / rect.height - 0.5) * 18}px`);
 });
+
+const familyContent = {
+  body: [
+    'OG BODY / 01',
+    '稳定移动，<br>自然行动。',
+    '从室内导航到复杂地形，统一控制系统让机器人的每一次移动都安全、流畅。',
+  ],
+  vision: [
+    'OG VISION / 02',
+    '看见环境，<br>理解现场。',
+    '融合视觉、深度与声音信息，实时识别人、物体、空间关系和正在发生的事件。',
+  ],
+  hand: [
+    'OG HAND / 03',
+    '精细操作，<br>举重若轻。',
+    '力控与触觉反馈共同工作，让机器人稳定抓取不同材质、形状和重量的物品。',
+  ],
+};
+document.querySelectorAll('.family-tab').forEach((tab) =>
+  tab.addEventListener('click', () => {
+    document
+      .querySelectorAll('.family-tab')
+      .forEach((item) => item.classList.toggle('active', item === tab));
+    const [eyebrow, title, text] = familyContent[tab.dataset.family];
+    document.querySelector('.family-stage').dataset.active = tab.dataset.family;
+    document.querySelector('#familyEyebrow').textContent = eyebrow;
+    document.querySelector('#familyTitle').innerHTML = title;
+    document.querySelector('#familyText').textContent = text;
+  }),
+);
