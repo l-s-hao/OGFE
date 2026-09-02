@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { lazy, Suspense, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import StrokeText from '@/components/reactbits/stroke-text';
 import { Button } from '@/components/ui/button';
@@ -12,6 +12,8 @@ import {
 } from '@/components/ui/sheet';
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import './style.css';
+
+const GridDistortion = lazy(() => import('@/components/reactbits/grid-distortion'));
 
 const products = [
   {
@@ -157,6 +159,17 @@ function App() {
 
       <main id="top">
         <section className="brand-hero">
+          <div className="hero-distortion" aria-hidden="true">
+            <Suspense fallback={<div className="hero-distortion-fallback" />}>
+              <GridDistortion
+                imageSrc="./images/robot-collaboration.png"
+                grid={18}
+                mouse={0.16}
+                strength={0.22}
+                relaxation={0.92}
+              />
+            </Suspense>
+          </div>
           <div className="hero-meta">
             <span>机器人 / 浙江</span>
             <span>运动中的智能</span>
