@@ -1,8 +1,4 @@
-import './style.css';
-
-const app = document.querySelector('#app');
-
-app.innerHTML = `
+export const homepageMarkup = `
   <div class="site-shell">
     <header class="topbar">
       <a class="brand" href="#top" aria-label="ONE G 首页">ONE—G<sup>®</sup></a>
@@ -74,66 +70,69 @@ app.innerHTML = `
     <div class="menu-panel" aria-hidden="true"><nav><a href="#work">产品能力</a><a href="#stories">研发现场</a><a href="#about">关于我们</a></nav><small>ONE—G / MENU</small></div>
   </div>`;
 
-const menuButton = document.querySelector('.menu-button');
-const menuPanel = document.querySelector('.menu-panel');
-function closeMenu() {
-  document.body.classList.remove('menu-open');
-  menuButton.setAttribute('aria-expanded', 'false');
-  menuPanel.setAttribute('aria-hidden', 'true');
-}
-menuButton.addEventListener('click', () => {
-  const open = document.body.classList.toggle('menu-open');
-  menuButton.setAttribute('aria-expanded', String(open));
-  menuPanel.setAttribute('aria-hidden', String(!open));
-});
-document.querySelectorAll('a[href^="#"]').forEach((link) =>
-  link.addEventListener('click', (event) => {
-    const target = document.querySelector(link.getAttribute('href'));
-    if (!target) return;
-    event.preventDefault();
-    closeMenu();
-    target.scrollIntoView({ behavior: 'smooth' });
-  }),
-);
-const observer = new IntersectionObserver(
-  (entries) =>
-    entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
-  { threshold: 0.14 },
-);
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-const art = document.querySelector('.feature-art');
-art.addEventListener('pointermove', (event) => {
-  const rect = art.getBoundingClientRect();
-  art.style.setProperty('--mx', `${((event.clientX - rect.left) / rect.width - 0.5) * 18}px`);
-  art.style.setProperty('--my', `${((event.clientY - rect.top) / rect.height - 0.5) * 18}px`);
-});
+export function setupHomepageInteractions() {
+  const menuButton = document.querySelector('.menu-button');
+  const menuPanel = document.querySelector('.menu-panel');
+  function closeMenu() {
+    document.body.classList.remove('menu-open');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuPanel.setAttribute('aria-hidden', 'true');
+  }
+  menuButton.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuPanel.setAttribute('aria-hidden', String(!open));
+  });
+  document.querySelectorAll('a[href^="#"]').forEach((link) =>
+    link.addEventListener('click', (event) => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      event.preventDefault();
+      closeMenu();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }),
+  );
+  const observer = new IntersectionObserver(
+    (entries) =>
+      entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
+    { threshold: 0.14 },
+  );
+  document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  const art = document.querySelector('.feature-art');
+  art.addEventListener('pointermove', (event) => {
+    const rect = art.getBoundingClientRect();
+    art.style.setProperty('--mx', `${((event.clientX - rect.left) / rect.width - 0.5) * 18}px`);
+    art.style.setProperty('--my', `${((event.clientY - rect.top) / rect.height - 0.5) * 18}px`);
+  });
 
-const familyContent = {
-  body: [
-    'OG BODY / 01',
-    '稳定移动，<br>自然行动。',
-    '从室内导航到复杂地形，统一控制系统让机器人的每一次移动都安全、流畅。',
-  ],
-  vision: [
-    'OG VISION / 02',
-    '看见环境，<br>理解现场。',
-    '融合视觉、深度与声音信息，实时识别人、物体、空间关系和正在发生的事件。',
-  ],
-  hand: [
-    'OG HAND / 03',
-    '精细操作，<br>举重若轻。',
-    '力控与触觉反馈共同工作，让机器人稳定抓取不同材质、形状和重量的物品。',
-  ],
-};
-document.querySelectorAll('.family-tab').forEach((tab) =>
-  tab.addEventListener('click', () => {
-    document
-      .querySelectorAll('.family-tab')
-      .forEach((item) => item.classList.toggle('active', item === tab));
-    const [eyebrow, title, text] = familyContent[tab.dataset.family];
-    document.querySelector('.family-stage').dataset.active = tab.dataset.family;
-    document.querySelector('#familyEyebrow').textContent = eyebrow;
-    document.querySelector('#familyTitle').innerHTML = title;
-    document.querySelector('#familyText').textContent = text;
-  }),
-);
+  const familyContent = {
+    body: [
+      'OG BODY / 01',
+      '稳定移动，<br>自然行动。',
+      '从室内导航到复杂地形，统一控制系统让机器人的每一次移动都安全、流畅。',
+    ],
+    vision: [
+      'OG VISION / 02',
+      '看见环境，<br>理解现场。',
+      '融合视觉、深度与声音信息，实时识别人、物体、空间关系和正在发生的事件。',
+    ],
+    hand: [
+      'OG HAND / 03',
+      '精细操作，<br>举重若轻。',
+      '力控与触觉反馈共同工作，让机器人稳定抓取不同材质、形状和重量的物品。',
+    ],
+  };
+  document.querySelectorAll('.family-tab').forEach((tab) =>
+    tab.addEventListener('click', () => {
+      document
+        .querySelectorAll('.family-tab')
+        .forEach((item) => item.classList.toggle('active', item === tab));
+      const [eyebrow, title, text] = familyContent[tab.dataset.family];
+      document.querySelector('.family-stage').dataset.active = tab.dataset.family;
+      document.querySelector('#familyEyebrow').textContent = eyebrow;
+      document.querySelector('#familyTitle').innerHTML = title;
+      document.querySelector('#familyText').textContent = text;
+    }),
+  );
+  return () => observer.disconnect();
+}
