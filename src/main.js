@@ -19,8 +19,8 @@ export const homepageMarkup = `
       <section class="discover section-pad" id="discover">
         <div class="discover-heading reveal"><small>DISCOVER ONE—G</small><h2>为现实世界打造的<br>机器人产品家族</h2><p>从通用本体到智能系统，每一项能力都可以独立工作，也可以无缝组合。</p></div>
         <div class="discover-grid">
-          <article class="discover-card body-card reveal"><div class="product-render robot-body"><i></i><b></b><span></span></div><div class="discover-copy"><small>GENERAL ROBOT</small><h3>OG Body</h3><p>面向真实环境的通用机器人本体。</p><a href="#products">探索本体 <span>→</span></a></div></article>
-          <article class="discover-card vision-card reveal"><div class="product-render vision-eye"><i></i><b></b></div><div class="discover-copy"><small>PERCEPTION SYSTEM</small><h3>OG Vision</h3><p>让机器理解人物、物体与空间关系。</p><a href="#collaboration">探索感知 <span>→</span></a></div></article>
+          <article class="discover-card body-card reveal"><div class="product-render"><img src="./images/og-body-product.png" alt="OG Body 通用机器人产品效果图" /></div><div class="discover-copy"><small>GENERAL ROBOT</small><h3>OG Body</h3><p>面向真实环境的通用机器人本体。</p><a href="#products">探索本体 <span>→</span></a></div></article>
+          <article class="discover-card vision-card reveal"><div class="product-render"><img src="./images/og-vision-sensor.png" alt="OG Vision 双目空间感知模组效果图" loading="lazy" /></div><div class="discover-copy"><small>PERCEPTION SYSTEM</small><h3>OG Vision</h3><p>让机器理解人物、物体与空间关系。</p><a href="#collaboration">探索感知 <span>→</span></a></div></article>
           <article class="discover-card studio-card reveal"><div class="product-render studio-ui"><span>01</span><span>BUILD</span><span>DEPLOY</span></div><div class="discover-copy"><small>DEVELOPER PLATFORM</small><h3>OG Studio</h3><p>从模型训练到真机部署的一体化工具。</p><a href="#platform">探索平台 <span>→</span></a></div></article>
         </div>
       </section>
@@ -105,6 +105,12 @@ export function setupHomepageInteractions() {
     { threshold: 0.14 },
   );
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  const primaryNav = document.querySelector('.topbar');
+  const navigationObserver = new IntersectionObserver(
+    ([entry]) => document.body.classList.toggle('subnav-visible', !entry.isIntersecting),
+    { threshold: 0 },
+  );
+  navigationObserver.observe(primaryNav);
   const art = document.querySelector('.feature-art');
   art.addEventListener('pointermove', (event) => {
     const rect = art.getBoundingClientRect();
@@ -141,5 +147,8 @@ export function setupHomepageInteractions() {
       document.querySelector('#familyText').textContent = text;
     }),
   );
-  return () => observer.disconnect();
+  return () => {
+    observer.disconnect();
+    navigationObserver.disconnect();
+  };
 }
