@@ -114,7 +114,7 @@ button {
   display: block;
   margin-bottom: 18px;
   color: #72736e;
-  font-size: 8px;
+  font-size: 13px;
   letter-spacing: 0.14em;
 }
 .dropdown-inner section {
@@ -179,7 +179,7 @@ button {
 }
 .drawer small {
   color: #777;
-  font-size: 8px;
+  font-size: 13px;
 }
 .brand-hero {
   display: flex;
@@ -192,7 +192,7 @@ button {
 .hero-foot {
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: 0.1em;
 }
 .hero-stroke {
@@ -221,7 +221,7 @@ button {
   align-items: start;
 }
 .store-heading small {
-  font-size: 8px;
+  font-size: 13px;
   letter-spacing: 0.14em;
 }
 .store-heading h2 {
@@ -289,7 +289,7 @@ button {
   padding: 36px;
 }
 .product-copy small {
-  font-size: 8px;
+  font-size: 13px;
   letter-spacing: 0.14em;
 }
 .product-copy h3 {
@@ -361,7 +361,7 @@ button {
   position: absolute;
   right: 18px;
   bottom: 18px;
-  font-size: 9px;
+  font-size: 14px;
   line-height: 1.5;
   letter-spacing: 0.14em;
 }
@@ -393,7 +393,7 @@ button {
 .use-copy small,
 .rail-head small,
 .store-footer small {
-  font-size: 8px;
+  font-size: 13px;
   letter-spacing: 0.14em;
 }
 .use-copy h2 {
@@ -467,7 +467,7 @@ button {
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 9px;
+  font-size: 14px;
 }
 .accessory-art i {
   position: absolute;
@@ -503,7 +503,7 @@ button {
   display: block;
   margin-top: 16px;
   color: #777;
-  font-size: 8px;
+  font-size: 13px;
   letter-spacing: 0.12em;
 }
 .accessory-rail h3 {
@@ -549,7 +549,7 @@ body > footer {
   padding: 25px 3vw;
   color: #888;
   background: var(--ink);
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: 0.1em;
 }
 @media (max-width: 760px) {
@@ -564,7 +564,7 @@ body > footer {
     display: none;
   }
   .nav-contact {
-    font-size: 9px;
+    font-size: 14px;
   }
   .nav-dropdown {
     display: none;
@@ -576,7 +576,7 @@ body > footer {
     --stroke-text-height: 150px !important;
   }
   .hero-meta {
-    font-size: 7px;
+    font-size: 12px;
   }
   .hero-foot p:nth-child(2) {
     display: none;

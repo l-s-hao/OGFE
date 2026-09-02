@@ -5,21 +5,21 @@ import './style.css';
 
 const products = [
   {
-    name: '1G Body',
+    name: '1G 本体',
     tag: '通用机器人',
     text: '面向真实世界打造的通用机器人本体。',
     image: './images/og-body-product.png',
     color: 'sand',
   },
   {
-    name: '1G Vision',
+    name: '1G 视觉',
     tag: '空间感知',
     text: '看见人物、物体与空间之间的关系。',
     image: './images/og-vision-sensor.png',
     color: 'ice',
   },
   {
-    name: '1G Studio',
+    name: '1G 开发平台',
     tag: '开发平台',
     text: '从模型训练到真机部署的一体化工具。',
     image: null,
@@ -32,25 +32,25 @@ function App() {
   const [activeMenu, setActiveMenu] = useState(null);
   const railRef = useRef(null);
   const menus = {
-    Systems: [
-      ['1G Body', '#featured'],
-      ['1G Vision', '#featured'],
-      ['1G Studio', '#featured'],
+    系统: [
+      ['1G 本体', '#featured'],
+      ['1G 视觉', '#featured'],
+      ['1G 开发平台', '#featured'],
     ],
-    Research: [
-      ['Embodied AI', '#use-case'],
-      ['World Model', '#use-case'],
-      ['Motion Control', '#use-case'],
+    研究: [
+      ['具身智能', '#use-case'],
+      ['世界模型', '#use-case'],
+      ['运动控制', '#use-case'],
     ],
-    Stories: [
-      ['Product stories', '#use-case'],
-      ['Field notes', '#accessories'],
-      ['Case studies', '#use-case'],
+    故事: [
+      ['产品故事', '#use-case'],
+      ['研发现场', '#accessories'],
+      ['案例研究', '#use-case'],
     ],
-    About: [
-      ['Our mission', '#store-footer'],
-      ['Shanghai Lab', '#store-footer'],
-      ['Contact', '#store-footer'],
+    关于: [
+      ['我们的使命', '#store-footer'],
+      ['上海实验室', '#store-footer'],
+      ['联系我们', '#store-footer'],
     ],
   };
   const go = (id) => (event) => {
@@ -72,7 +72,7 @@ function App() {
       >
         <header className="minimal-nav">
           <button className="menu-trigger" onClick={() => setMenuOpen(true)}>
-            <i></i> Explore
+            <i></i> 探索
           </button>
           <a className="nav-logo" href="#top" onClick={go('#top')}>
             ONE - G
@@ -89,14 +89,14 @@ function App() {
             ))}
           </nav>
           <a className="nav-contact" href="mailto:hello@one-g.ai">
-            Contact ↗
+            联系我们 ↗
           </a>
         </header>
         <div className="nav-dropdown" aria-hidden={!activeMenu}>
           {activeMenu && (
             <div className="dropdown-inner">
               <section>
-                <small>EXPLORE {activeMenu.toUpperCase()}</small>
+                <small>探索 {activeMenu}</small>
                 {menus[activeMenu].map(([name, href]) => (
                   <a href={href} onClick={go(href)} key={name}>
                     {name}
@@ -105,38 +105,38 @@ function App() {
                 ))}
               </section>
               <aside>
-                <small>QUICK LINKS</small>
+                <small>快捷入口</small>
                 <a href="#store" onClick={go('#store')}>
-                  Explore all products
+                  浏览全部产品
                 </a>
                 <a href="#accessories" onClick={go('#accessories')}>
-                  Accessories & modules
+                  配件与模块
                 </a>
-                <a href="mailto:hello@one-g.ai">Talk to a specialist</a>
+                <a href="mailto:hello@one-g.ai">咨询产品专家</a>
               </aside>
             </div>
           )}
         </div>
       </div>
       <aside className={`drawer ${menuOpen ? 'open' : ''}`}>
-        <button onClick={() => setMenuOpen(false)}>Close ×</button>
+        <button onClick={() => setMenuOpen(false)}>关闭 ×</button>
         <nav>
           <a href="#store" onClick={go('#store')}>
-            01 / Store
+            01 / 商店
           </a>
           <a href="#featured" onClick={go('#featured')}>
-            02 / Products
+            02 / 产品
           </a>
-          <a href="mailto:hello@one-g.ai">03 / Contact</a>
+          <a href="mailto:hello@one-g.ai">03 / 联系</a>
         </nav>
-        <small>ONE - G / SHANGHAI / 2026</small>
+        <small>ONE - G / 上海 / 2026</small>
       </aside>
 
       <main id="top">
         <section className="brand-hero">
           <div className="hero-meta">
-            <span>ROBOTICS / SHANGHAI</span>
-            <span>INTELLIGENCE IN MOTION</span>
+            <span>机器人 / 上海</span>
+            <span>运动中的智能</span>
           </div>
           <StrokeText
             text="ONE - G"
@@ -154,34 +154,34 @@ function App() {
           />
           <div className="hero-foot">
             <p>
-              Building intelligent machines
+              为现实世界
               <br />
-              for the physical world.
+              构建智能机器。
             </p>
             <p>让机器理解世界。</p>
             <a href="#store" onClick={go('#store')}>
-              Explore the store ↓
+              探索商店 ↓
             </a>
           </div>
         </section>
 
         <section className="store" id="store">
           <div className="store-heading">
-            <small>ONE - G STORE</small>
+            <small>ONE - G 商店</small>
             <h2>
-              Explore the
+              探索
               <br />
-              ONE - G Store
+              ONE - G 商店
             </h2>
             <p>
               探索机器人本体、感知系统与开发工具。每一项产品都可独立工作，也可组成完整智能系统。
             </p>
           </div>
           <div className="category-tabs">
-            <button className="active">All products</button>
-            <button>Robots</button>
-            <button>Perception</button>
-            <button>Developer tools</button>
+            <button className="active">全部产品</button>
+            <button>机器人</button>
+            <button>感知系统</button>
+            <button>开发工具</button>
           </div>
           <div className="product-grid" id="featured">
             {products.map((product, index) => (
@@ -209,11 +209,11 @@ function App() {
                     <span>1G</span>
                     <i></i>
                     <b>
-                      BUILD
+                      构建
                       <br />
-                      TEST
+                      测试
                       <br />
-                      DEPLOY
+                      部署
                     </b>
                   </div>
                 )}
@@ -227,7 +227,7 @@ function App() {
             <img src="./images/robot-collaboration.png" alt="机器人与设计师协作" loading="lazy" />
           </div>
           <div className="use-copy">
-            <small>BUILT FOR REAL WORK</small>
+            <small>为真实工作而生</small>
             <h2>
               与人一起，
               <br />
@@ -241,7 +241,7 @@ function App() {
         <section className="accessories" id="accessories">
           <div className="rail-head">
             <div>
-              <small>COMPLETE YOUR SYSTEM</small>
+              <small>完善你的系统</small>
               <h2>配件与模块</h2>
             </div>
             <div>
@@ -251,10 +251,10 @@ function App() {
           </div>
           <div className="accessory-rail" ref={railRef}>
             {[
-              ['灵巧手模组', 'HAND / 01'],
-              ['移动底盘', 'BASE / 02'],
-              ['力觉传感器', 'SENSOR / 03'],
-              ['边缘计算单元', 'COMPUTE / 04'],
+              ['灵巧手模组', '手部 / 01'],
+              ['移动底盘', '底盘 / 02'],
+              ['力觉传感器', '传感器 / 03'],
+              ['边缘计算单元', '计算 / 04'],
             ].map(([name, code], i) => (
               <article key={name}>
                 <div className={`accessory-art a${i}`}>
@@ -270,7 +270,7 @@ function App() {
         </section>
 
         <section className="store-footer" id="store-footer">
-          <small>NEED HELP CHOOSING?</small>
+          <small>需要选购帮助？</small>
           <h2>
             找到适合你的
             <br />
@@ -286,9 +286,9 @@ function App() {
       </main>
       <footer>
         <span>ONE - G © 2026</span>
-        <span>SHANGHAI, CHINA</span>
+        <span>中国，上海</span>
         <a href="#top" onClick={go('#top')}>
-          BACK TO TOP ↑
+          返回顶部 ↑
         </a>
       </footer>
     </>
