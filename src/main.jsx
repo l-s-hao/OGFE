@@ -1,24 +1,25 @@
 import { useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { StrokeText } from '@/components/reactbits/stroke-text';
 import './style.css';
 
 const products = [
   {
-    name: 'OG Body',
+    name: '1G Body',
     tag: '通用机器人',
     text: '面向真实世界打造的通用机器人本体。',
     image: './images/og-body-product.png',
     color: 'sand',
   },
   {
-    name: 'OG Vision',
+    name: '1G Vision',
     tag: '空间感知',
     text: '看见人物、物体与空间之间的关系。',
     image: './images/og-vision-sensor.png',
     color: 'ice',
   },
   {
-    name: 'OG Studio',
+    name: '1G Studio',
     tag: '开发平台',
     text: '从模型训练到真机部署的一体化工具。',
     image: null,
@@ -32,9 +33,9 @@ function App() {
   const railRef = useRef(null);
   const menus = {
     Systems: [
-      ['OG Body', '#featured'],
-      ['OG Vision', '#featured'],
-      ['OG Studio', '#featured'],
+      ['1G Body', '#featured'],
+      ['1G Vision', '#featured'],
+      ['1G Studio', '#featured'],
     ],
     Research: [
       ['Embodied AI', '#use-case'],
@@ -74,7 +75,7 @@ function App() {
             <i></i> Explore
           </button>
           <a className="nav-logo" href="#top" onClick={go('#top')}>
-            ONE—G
+            ONE - G
           </a>
           <nav>
             {Object.keys(menus).map((name) => (
@@ -128,7 +129,7 @@ function App() {
           </a>
           <a href="mailto:hello@one-g.ai">03 / Contact</a>
         </nav>
-        <small>ONE—G / SHANGHAI / 2026</small>
+        <small>ONE - G / SHANGHAI / 2026</small>
       </aside>
 
       <main id="top">
@@ -137,7 +138,7 @@ function App() {
             <span>ROBOTICS / SHANGHAI</span>
             <span>INTELLIGENCE IN MOTION</span>
           </div>
-          <h1>ONE—G</h1>
+          <StrokeText text="ONE - G" />
           <div className="hero-foot">
             <p>
               Building intelligent machines
@@ -153,11 +154,11 @@ function App() {
 
         <section className="store" id="store">
           <div className="store-heading">
-            <small>ONE—G STORE</small>
+            <small>ONE - G STORE</small>
             <h2>
               Explore the
               <br />
-              ONE—G Store
+              ONE - G Store
             </h2>
             <p>
               探索机器人本体、感知系统与开发工具。每一项产品都可独立工作，也可组成完整智能系统。
@@ -192,7 +193,7 @@ function App() {
                   />
                 ) : (
                   <div className="studio-graphic">
-                    <span>OG</span>
+                    <span>1G</span>
                     <i></i>
                     <b>
                       BUILD
@@ -219,7 +220,7 @@ function App() {
               <br />
               完成更多。
             </h2>
-            <p>自然语言协作、实时空间理解和安全运动控制，让 OG 机器人进入真实工作流。</p>
+            <p>自然语言协作、实时空间理解和安全运动控制，让 1G 机器人进入真实工作流。</p>
             <a href="mailto:hello@one-g.ai">预约产品演示 ↗</a>
           </div>
         </section>
@@ -271,7 +272,7 @@ function App() {
         </section>
       </main>
       <footer>
-        <span>ONE—G © 2026</span>
+        <span>ONE - G © 2026</span>
         <span>SHANGHAI, CHINA</span>
         <a href="#top" onClick={go('#top')}>
           BACK TO TOP ↑
