@@ -5,6 +5,7 @@ import { homepageMarkup, setupHomepageInteractions } from './main.js';
 import { BlurText } from '@/components/reactbits/blur-text';
 import { NumberTicker } from '@/components/magicui/number-ticker';
 import { PlatformBento } from '@/components/platform-bento';
+import { AccountAccess } from '@/components/account-access';
 import './style.css';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
           document.querySelector('#tickerRuntime'),
         )}
       {mounted && createPortal(<PlatformBento />, document.querySelector('#platformCards'))}
+      {mounted && createPortal(<AccountAccess />, document.querySelector('#accountAccess'))}
     </>
   );
 }

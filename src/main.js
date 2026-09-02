@@ -3,7 +3,7 @@ export const homepageMarkup = `
     <header class="product-nav" aria-label="主导航">
       <a class="brand" href="#top" aria-label="ONE G 首页">ONE—G<sup>®</sup></a>
       <nav><a href="#products">产品</a><a href="#collaboration">能力</a><a href="#platform">开发平台</a><a href="#stories">研发</a></nav>
-      <div class="nav-actions"><button class="login-button" type="button">用户登录</button><button class="menu-button" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button></div>
+      <div class="nav-actions"><div id="accountAccess"></div><button class="menu-button" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button></div>
       <div class="mega-menu">
         <div class="mega-lead"><small>EXPLORE ONE—G</small><h2>让智能进入<br>现实世界。</h2><span>PRODUCTS / 2026</span></div>
         <div class="mega-column"><small>产品系列</small><a href="#products"><b>OG Body</b><span>通用机器人本体</span></a><a href="#collaboration"><b>OG Vision</b><span>空间感知系统</span></a><a href="#platform"><b>OG Studio</b><span>开放开发平台</span></a></div>
@@ -75,7 +75,6 @@ export const homepageMarkup = `
     </main>
     <footer class="footer section-pad"><span>© 2026 ONE—G</span><span>SHANGHAI, CN · 14:32</span><a href="#top">BACK TO TOP ↑</a></footer>
     <a class="back-to-top" href="#top" aria-label="返回顶部"><span>↑</span><small>TOP</small></a>
-    <dialog class="login-dialog"><button class="dialog-close" type="button" aria-label="关闭">×</button><small>ONE—G ACCOUNT</small><h2>欢迎回来</h2><form method="dialog"><label>邮箱<input type="email" placeholder="name@example.com" required /></label><label>密码<input type="password" placeholder="••••••••" required /></label><button class="dialog-submit" type="submit">登录 <span>→</span></button></form><p>演示界面，暂未连接用户系统。</p></dialog>
     <div class="menu-panel" aria-hidden="true"><nav><a href="#work">产品能力</a><a href="#stories">研发现场</a><a href="#about">关于我们</a></nav><small>ONE—G / MENU</small></div>
   </div>`;
 
@@ -108,12 +107,6 @@ export function setupHomepageInteractions() {
   );
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
   const backToTop = document.querySelector('.back-to-top');
-  const loginDialog = document.querySelector('.login-dialog');
-  document.querySelector('.login-button').addEventListener('click', () => loginDialog.showModal());
-  document.querySelector('.dialog-close').addEventListener('click', () => loginDialog.close());
-  loginDialog.addEventListener('click', (event) => {
-    if (event.target === loginDialog) loginDialog.close();
-  });
   const updateBackToTop = () =>
     backToTop.classList.toggle('visible', window.scrollY > window.innerHeight * 0.7);
   window.addEventListener('scroll', updateBackToTop, { passive: true });
