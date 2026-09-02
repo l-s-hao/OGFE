@@ -7,11 +7,22 @@ export const homepageMarkup = `
       </nav>
       <div class="top-actions"><span class="status"><i></i> SYSTEM ONLINE</span><button class="menu-button" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button></div>
     </header>
+    <div class="product-nav" aria-label="产品系列导航">
+      <span>探索 ONE—G</span><nav><a href="#products">OG Body</a><a href="#collaboration">OG Vision</a><a href="#platform">开发平台</a></nav><a class="nav-cta" href="#contact">联系我们 ↗</a>
+    </div>
     <main id="top">
       <section class="hero section-pad">
         <div class="hero-kicker reveal"><span>01</span><span>Robotics / Shanghai</span></div>
         <h1 class="reveal" id="heroTitle" aria-label="让机器理解世界。"></h1>
         <div class="hero-bottom reveal"><p>我们打造能感知、思考与行动的通用机器人，<br>让智能真正进入现实世界。</p><a class="circle-link" href="#work" aria-label="查看产品能力">↘</a></div>
+      </section>
+      <section class="discover section-pad" id="discover">
+        <div class="discover-heading reveal"><small>DISCOVER ONE—G</small><h2>为现实世界打造的<br>机器人产品家族</h2><p>从通用本体到智能系统，每一项能力都可以独立工作，也可以无缝组合。</p></div>
+        <div class="discover-grid">
+          <article class="discover-card body-card reveal"><div class="product-render robot-body"><i></i><b></b><span></span></div><div class="discover-copy"><small>GENERAL ROBOT</small><h3>OG Body</h3><p>面向真实环境的通用机器人本体。</p><a href="#products">探索本体 <span>→</span></a></div></article>
+          <article class="discover-card vision-card reveal"><div class="product-render vision-eye"><i></i><b></b></div><div class="discover-copy"><small>PERCEPTION SYSTEM</small><h3>OG Vision</h3><p>让机器理解人物、物体与空间关系。</p><a href="#collaboration">探索感知 <span>→</span></a></div></article>
+          <article class="discover-card studio-card reveal"><div class="product-render studio-ui"><span>01</span><span>BUILD</span><span>DEPLOY</span></div><div class="discover-copy"><small>DEVELOPER PLATFORM</small><h3>OG Studio</h3><p>从模型训练到真机部署的一体化工具。</p><a href="#platform">探索平台 <span>→</span></a></div></article>
+        </div>
       </section>
       <section class="feature-wrap section-pad reveal" id="work">
         <article class="feature-card">
@@ -60,7 +71,7 @@ export const homepageMarkup = `
           <article class="project project-wide reveal"><div class="project-visual visual-c"><div class="wave"></div><b>THINK</b><small>01 101 001 110</small></div><div class="project-meta"><h3>多模态决策</h3><p>视觉语言行动模型 / 2026</p><span>↗</span></div></article>
         </div>
       </section>
-      <section class="closing section-pad reveal"><p>ONE—G / ROBOTICS</p><h2>智能，应当<br><em>走出屏幕。</em></h2><a href="mailto:hello@one-g.ai">开始对话 <span>↗</span></a></section>
+      <section class="closing section-pad reveal" id="contact"><p>ONE—G / ROBOTICS</p><h2>智能，应当<br><em>走出屏幕。</em></h2><a href="mailto:hello@one-g.ai">开始对话 <span>↗</span></a></section>
     </main>
     <footer class="footer section-pad"><span>© 2026 ONE—G</span><span>SHANGHAI, CN · 14:32</span><a href="#top">BACK TO TOP ↑</a></footer>
     <div class="menu-panel" aria-hidden="true"><nav><a href="#work">产品能力</a><a href="#stories">研发现场</a><a href="#about">关于我们</a></nav><small>ONE—G / MENU</small></div>
