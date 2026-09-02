@@ -1,11 +1,11 @@
 export const homepageMarkup = `
   <div class="site-shell">
     <header class="product-nav" aria-label="主导航">
-      <a class="brand" href="#top" aria-label="ONE G 首页">ONE—G<sup>®</sup></a>
+      <a class="brand" href="#top" aria-label="ONE G 首页">ONE - G<sup>®</sup></a>
       <nav><a href="#products">产品</a><a href="#collaboration">能力</a><a href="#platform">开发平台</a><a href="#stories">研发</a></nav>
       <div class="nav-actions"><div id="accountAccess"><button class="login-button" type="button">用户登录</button></div><button class="menu-button" type="button" aria-label="打开菜单" aria-expanded="false"><span></span><span></span></button></div>
       <div class="mega-menu">
-        <div class="mega-lead"><small>EXPLORE ONE—G</small><h2>让智能进入<br>现实世界。</h2><span>PRODUCTS / 2026</span></div>
+        <div class="mega-lead"><small>EXPLORE ONE - G</small><h2>让智能进入<br>现实世界。</h2><span>PRODUCTS / 2026</span></div>
         <div class="mega-column"><small>产品系列</small><a href="#products"><b>OG Body</b><span>通用机器人本体</span></a><a href="#collaboration"><b>OG Vision</b><span>空间感知系统</span></a><a href="#platform"><b>OG Studio</b><span>开放开发平台</span></a></div>
         <div class="mega-column"><small>探索更多</small><a href="#about"><b>技术理念</b><span>我们的研发方向</span></a><a href="#stories"><b>研发现场</b><span>实验与最新进展</span></a><a href="#contact"><b>联系我们</b><span>合作与产品咨询</span></a></div>
       </div>
@@ -13,11 +13,11 @@ export const homepageMarkup = `
     <main id="top">
       <section class="hero section-pad">
         <div class="hero-kicker reveal"><span>ROBOTICS / SHANGHAI</span><span>INTELLIGENCE IN MOTION</span></div>
-        <h1 class="reveal logo-display" id="heroTitle" aria-label="ONE G"><span class="blur-line">ONE—G</span></h1>
+        <h1 class="reveal logo-display" id="heroTitle" aria-label="ONE G"><span class="blur-line">ONE - G</span></h1>
         <div class="hero-bottom reveal"><p><b>让机器理解世界。</b><br>我们打造能感知、思考与行动的通用机器人。</p><a class="circle-link" href="#discover" aria-label="查看产品系列">↘</a></div>
       </section>
       <section class="discover section-pad" id="discover">
-        <div class="discover-heading reveal"><small>DISCOVER ONE—G</small><h2>为现实世界打造的<br>机器人产品家族</h2><p>从通用本体到智能系统，每一项能力都可以独立工作，也可以无缝组合。</p></div>
+        <div class="discover-heading reveal"><small>DISCOVER ONE - G</small><h2>为现实世界打造的<br>机器人产品家族</h2><p>从通用本体到智能系统，每一项能力都可以独立工作，也可以无缝组合。</p></div>
         <div class="discover-grid">
           <article class="discover-card body-card reveal"><div class="product-render"><img src="./images/og-body-product.png" alt="OG Body 通用机器人产品效果图" /></div><div class="discover-copy"><small>GENERAL ROBOT</small><h3>OG Body</h3><p>面向真实环境的通用机器人本体。</p><a href="#products">探索本体 <span>→</span></a></div></article>
           <article class="discover-card vision-card reveal"><div class="product-render"><img src="./images/og-vision-sensor.png" alt="OG Vision 双目空间感知模组效果图" loading="lazy" /></div><div class="discover-copy"><small>PERCEPTION SYSTEM</small><h3>OG Vision</h3><p>让机器理解人物、物体与空间关系。</p><a href="#collaboration">探索感知 <span>→</span></a></div></article>

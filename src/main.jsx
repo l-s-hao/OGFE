@@ -34,6 +34,29 @@ const notes = [
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeMenu, setActiveMenu] = useState(null);
+  const menus = {
+    Systems: [
+      ['OG Body', '通用机器人本体'],
+      ['OG Vision', '空间感知模组'],
+      ['OG Hand', '灵巧操作系统'],
+    ],
+    Research: [
+      ['Embodied AI', '具身基础模型'],
+      ['World Model', '环境理解'],
+      ['Motion', '全身运动控制'],
+    ],
+    Stories: [
+      ['Field Notes', '研发现场'],
+      ['Journal', '技术文章'],
+      ['Collections', '专题集合'],
+    ],
+    About: [
+      ['Mission', '我们的使命'],
+      ['Studio', '团队与实验室'],
+      ['Contact', '合作与咨询'],
+    ],
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -53,28 +76,64 @@ function App() {
 
   return (
     <>
-      <header className="nav-shell">
-        <button className="explore" onClick={() => setMenuOpen(!menuOpen)}>
-          <i></i> Explore
-        </button>
-        <a className="wordmark" href="#top" onClick={scrollTo('#top')}>
-          ONE—G
-        </a>
-        <nav>
-          <a href="#systems" onClick={scrollTo('#systems')}>
-            Systems
+      <div
+        className={`global-nav ${activeMenu ? 'expanded' : ''}`}
+        onMouseLeave={() => setActiveMenu(null)}
+      >
+        <header className="nav-shell">
+          <button className="explore" onClick={() => setMenuOpen(!menuOpen)}>
+            <i></i> Explore
+          </button>
+          <a className="wordmark" href="#top" onClick={scrollTo('#top')}>
+            ONE—G
           </a>
-          <a href="#research" onClick={scrollTo('#research')}>
-            Research
+          <nav>
+            {Object.keys(menus).map((name) => (
+              <button
+                key={name}
+                onMouseEnter={() => setActiveMenu(name)}
+                onFocus={() => setActiveMenu(name)}
+              >
+                {name}
+              </button>
+            ))}
+          </nav>
+          <a className="talk" href="mailto:hello@one-g.ai">
+            Start a project ↗
           </a>
-          <a href="#contact" onClick={scrollTo('#contact')}>
-            Contact
-          </a>
-        </nav>
-        <a className="talk" href="mailto:hello@one-g.ai">
-          Start a project ↗
-        </a>
-      </header>
+        </header>
+        <div className="nav-dropdown" aria-hidden={!activeMenu}>
+          {activeMenu && (
+            <div className="dropdown-inner">
+              <div className="dropdown-main">
+                <small>EXPLORE {activeMenu.toUpperCase()}</small>
+                {menus[activeMenu].map(([title, desc]) => (
+                  <a
+                    href={activeMenu === 'Research' ? '#research' : '#systems'}
+                    onClick={scrollTo(activeMenu === 'Research' ? '#research' : '#systems')}
+                    key={title}
+                  >
+                    <b>{title}</b>
+                    <span>{desc}</span>
+                  </a>
+                ))}
+              </div>
+              <aside>
+                <small>QUICK LINKS</small>
+                <a href="#featured" onClick={scrollTo('#featured')}>
+                  Robot of the day ↗
+                </a>
+                <a href="#stories" onClick={scrollTo('#stories')}>
+                  Latest stories ↗
+                </a>
+                <a href="#contact" onClick={scrollTo('#contact')}>
+                  Contact us ↗
+                </a>
+              </aside>
+            </div>
+          )}
+        </div>
+      </div>
 
       <div className={`menu-drawer ${menuOpen ? 'open' : ''}`}>
         <button onClick={() => setMenuOpen(false)}>Close ×</button>
